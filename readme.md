@@ -2,9 +2,9 @@
 
 ## Overview
 
-FrameSight is a desktop application designed for real-time OCR (text recognition) and overlay data extraction from live screen content (such as game broadcasts).
+FrameSight is a desktop application for real-time OCR (text recognition) and data extraction from live screen content such as games, broadcasts, or video feeds.
 
-This version is fully packaged as a Windows application. No additional installations (Node.js, libraries, etc.) are required.
+This version is fully packaged as a Windows application. No additional software or libraries are required.
 
 ---
 
@@ -12,151 +12,262 @@ This version is fully packaged as a Windows application. No additional installat
 
 * OS: Windows 10 / Windows 11 (64-bit)
 * RAM: Minimum 4 GB (8 GB recommended)
-* Internet: Required (for initial resource loading)
-* GPU: Optional but recommended for smoother performance
+* Internet: Required (for UI resources)
+* Display: 1080p or higher recommended
 
 ---
 
 ## Installation
 
-1. Run the file:
+1. Run:
 
    ```
    FrameSight Setup.exe
    ```
-
-2. Follow the installer steps:
-
-   * Click **Next**
-   * Choose installation location (optional)
-   * Click **Install**
-
-3. Once installed:
-
-   * Launch **FrameSight** from Desktop or Start Menu
+2. Follow installation steps
+3. Launch from Desktop or Start Menu
 
 ---
 
-## First Launch
+## Application Structure (Categories)
 
-When you open the app, you will see the main interface with multiple tabs:
+FrameSight is organized into functional sections:
 
-* Settings
-* Capture
-* Live
-* Debug (optional)
+### 1. Settings
+
+* Profile name configuration
+* Team names and keys
+* General app setup
+
+---
+
+### 2. Capture
+
+* Select screen or window
+* Live preview display
+* Draw detection areas (OCR zones)
+
+---
+
+### 3. Live
+
+* Displays extracted data in real time
+* Shows JSON output structure
+
+---
+
+### 4. Info
+
+* Network endpoint (IP + Port)
+* Output status
+* Connection details for integrations
+
+---
+
+### 5. Debug (Advanced)
+
+* Layer inspection
+* OCR diagnostics
+* Performance monitoring
+
+---
+
+## How It Works (Core Workflow)
+
+FrameSight follows a structured pipeline:
+
+### Step 1: Screen Capture
+
+* You select a screen or application window
+* FrameSight continuously captures frames
+
+---
+
+### Step 2: Region Selection (Layers)
+
+* You draw boxes over areas containing text
+* Each box = a "layer" (e.g., score, player name)
+
+---
+
+### Step 3: OCR Processing
+
+* The app scans each layer
+* Extracts text using OCR engine
+* Updates values continuously
+
+---
+
+### Step 4: Data Structuring
+
+* Extracted data is stored in structured format:
+
+  * JSON object
+  * Key-value pairs
+
+---
+
+### Step 5: Output Delivery
+
+FrameSight outputs data in two ways:
+
+#### A. Local Files
+
+* `.json` file (full dataset)
+* `.txt` files (individual values)
+
+#### B. Local Server
+
+Example:
+
+```
+http://YOUR-IP:PORT/ProfileName.json
+```
+
+This can be used in:
+
+* OBS overlays
+* Streaming tools
+* Web dashboards
 
 ---
 
 ## How to Use
 
-### 1. Select Capture Source
+### 1. Select Source
 
-* Go to **Capture tab**
+* Go to **Capture**
 * Click **Select Window / Screen**
-* Choose:
-
-  * Full screen OR
-  * Specific application window
+* Choose your source
 
 ---
 
 ### 2. Start Capture
 
 * Click **Start Capture**
-* You should now see a live preview
+* Preview appears
 
 ---
 
-### 3. Create Detection Areas
+### 3. Create Layers
 
-* Draw boxes on the screen where text appears
-* Assign names (e.g., Player1, Score, Timer)
+* Draw boxes over text areas
+* Assign names (e.g., Player1, KillCount)
 
 ---
 
-### 4. Start Engine
+### 4. Run Engine
 
 * Click **Run Engine**
-* The app will:
-
-  * Continuously scan selected areas
-  * Extract text using OCR
-  * Update live data
+* OCR starts processing
 
 ---
 
-### 5. Access Output Data
+### 5. Monitor Output
 
-The app generates live data in two ways:
+* Check **Live tab**
+* Or open the server URL
 
-#### A. Local Output Files
+---
 
-* JSON file (structured data)
-* TXT files (individual values)
+## Profiles (Import / Export)
 
-#### B. Local Server Endpoint
+Profiles allow you to save and reuse configurations.
 
-* Example:
+---
 
-  ```
-  http://YOUR-IP:PORT/ProfileName.json
-  ```
+### Export Profile
 
-You can use this in:
+Use this when you want to save your setup:
 
-* OBS overlays
-* Web dashboards
-* Broadcast tools
+1. Go to **Settings**
+2. Click **Save Profile**
+3. Choose a location
+4. A `.json` file will be created
+
+This file contains:
+
+* Layer positions
+* Names and keys
+* Configuration settings
+
+---
+
+### Import Profile
+
+Use this to load an existing setup:
+
+1. Go to **Settings**
+2. Click **Load Profile**
+3. Select the `.json` file
+
+The app will:
+
+* Restore all layers
+* Apply saved configuration
+* Load instantly without manual setup
+
+---
+
+### Use Case Example
+
+* Create profile for Game A
+* Export it
+* Share with teammates
+* They import and use instantly
 
 ---
 
 ## Features
 
-* Real-time OCR processing
-* Screen/window capture
-* Custom detection regions
+* Real-time OCR scanning
+* Multi-layer detection system
+* Custom naming and structuring
 * Live JSON output
-* Local HTTP server for integration
-* Profile-based configurations
+* Built-in HTTP server
+* Profile save/load system
+* Designed for broadcast workflows
 
 ---
 
-## Notes
+## Important Notes
 
-* Accuracy depends on screen clarity and font size
-* OCR may take a few seconds to initialize on first run
-* Keep the app window visible for best performance
+* OCR accuracy depends on:
+
+  * Text clarity
+  * Resolution
+  * Contrast
+* Keep capture area stable
+* Avoid overlapping layers
 
 ---
 
 ## Troubleshooting
 
-### App does not start
+### OCR not working
 
-* Ensure Windows Defender is not blocking it
-* Run as Administrator (if needed)
-
----
-
-### OCR not detecting text
-
-* Make sure:
-
-  * Text is clearly visible
-  * Area selection is correct
-  * Capture is running
+* Ensure text is clearly visible
+* Re-adjust layer size
+* Restart engine
 
 ---
 
-### Capture not working
+### Capture not starting
 
-* Re-select the window/screen
-* Restart the application
+* Re-select source
+* Restart application
 
 ---
 
-### Blank or missing UI elements
+### No data output
+
+* Ensure engine is running
+* Check Live tab
+* Verify server URL
+
+---
+
+### UI issues
 
 * Ensure internet connection is active
 
@@ -166,28 +277,20 @@ You can use this in:
 
 To update:
 
-1. Uninstall the old version
-2. Install the new `.exe`
-
-(Automatic updates are not included in this version)
+1. Uninstall current version
+2. Install new version using `.exe`
 
 ---
 
 ## Uninstall
 
-* Go to:
+* Open:
 
   ```
-  Control Panel → Programs → Uninstall a Program
+  Control Panel → Programs
   ```
 * Select **FrameSight**
 * Click **Uninstall**
-
----
-
-## Support
-
-If you encounter issues, contact the provider who shared this application.
 
 ---
 
@@ -200,4 +303,4 @@ Application: FrameSight
 
 ## Disclaimer
 
-This application is provided as-is. Performance may vary depending on system configuration and usage conditions.
+This software is provided as-is. Performance may vary depending on system configuration and usage conditions.
