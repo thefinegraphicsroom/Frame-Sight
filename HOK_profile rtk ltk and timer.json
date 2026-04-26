@@ -1,0 +1,115 @@
+{
+  "name": "HOK",
+  "version": "1.0",
+  "layers": [
+    {
+      "id": 2,
+      "name": "RIGHT_GOLD",
+      "type": "text",
+      "mode": "gold",
+      "brightText": false,
+      "expanded": false,
+      "x": 1144,
+      "y": 8,
+      "w": 83,
+      "h": 46
+    },
+    {
+      "id": 4,
+      "name": "LEFT_TURRET",
+      "type": "text",
+      "mode": "turret",
+      "brightText": false,
+      "expanded": false,
+      "x": 649,
+      "y": 13,
+      "w": 29,
+      "h": 38
+    },
+    {
+      "id": 5,
+      "name": "LEFT_GOLD",
+      "type": "text",
+      "mode": "gold",
+      "brightText": false,
+      "expanded": false,
+      "x": 727,
+      "y": 10,
+      "w": 77,
+      "h": 46
+    },
+    {
+      "id": 6,
+      "name": "LEFT_KILL",
+      "type": "text",
+      "mode": "kills",
+      "brightText": true,
+      "expanded": false,
+      "x": 881,
+      "y": 21,
+      "w": 43,
+      "h": 38
+    },
+    {
+      "id": 7,
+      "name": "RIGHT_KILL",
+      "type": "text",
+      "mode": "kills",
+      "brightText": false,
+      "expanded": false,
+      "x": 988,
+      "y": 22,
+      "w": 52,
+      "h": 38
+    },
+    {
+      "id": 8,
+      "name": "LEFT_TYRANT",
+      "type": "text",
+      "mode": "tyrant",
+      "brightText": false,
+      "expanded": false,
+      "x": 571,
+      "y": 12,
+      "w": 30,
+      "h": 41
+    },
+    {
+      "id": 9,
+      "name": "RIGHT_TURRET",
+      "type": "text",
+      "mode": "turret",
+      "brightText": false,
+      "expanded": false,
+      "x": 1273,
+      "y": 15,
+      "w": 31,
+      "h": 38
+    },
+    {
+      "id": 10,
+      "name": "RIGHT_OVERLORD",
+      "type": "text",
+      "mode": "tyrant",
+      "brightText": false,
+      "expanded": false,
+      "x": 1351,
+      "y": 17,
+      "w": 24,
+      "h": 30
+    },
+    {
+      "id": 11,
+      "name": "TIMER",
+      "type": "text",
+      "mode": "timer",
+      "brightText": false,
+      "expanded": false,
+      "x": 936,
+      "y": 1,
+      "w": 53,
+      "h": 23
+    }
+  ],
+  "created": "2026-04-17T13:38:37.010Z"
+}
